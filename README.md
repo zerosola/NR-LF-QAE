@@ -1,3 +1,3 @@
 # NR-LF-QAE
 
-If the manuscript is accepted, we will open source code as much as possible.
+If the manuscript is accepted, we will open the source code as much as possible.
