@@ -1,7 +1,7 @@
-function [ThreeGabor_features1,ThreeGabor_features3] = ThreeLogGabor(pos, lf_num, rows, cols, volume)
+function [featuress1,featuress3] = ThreeLogGabor(pos, lf_num, rows, cols, volume)
 
 angtheta_set = [0, pi/4, pi/2, pi*3/4, pi];  % -pi -- pi
-angphi_set = [0, pi/3];  % -pi/2 -- pi/2  
+angphi_set = [0, pi/4, pi/3, pi/2];  % -pi/2 -- pi/2  
 norient = size(angtheta_set,2);
 nscale = size(angphi_set, 2);
 minWaveLength = 25;
@@ -35,28 +35,30 @@ for k = 1:lf_num
     Y = double(ALL_LF);
     imagefft = fftn(Y);
     
-    ThreeGabor_features1 = []; 
-    ThreeGabor_features3 = []; 
+    featuress1 = []; 
+    featuress3 = []; 
     
     for numi  = 1 : nscale
         for numj = 1 : norient
             EO =ifftn(imagefft.* filter{numi,numj});            
             
-            [alpha leftstd rightstd] = estimateaggdparam( real(EO(:)) );
-            ThreeGabor_features1 = [ThreeGabor_features1 alpha leftstd rightstd];
+            [structdis,~,~,~]= divisiveNormalization3D(real(EO));
+            [alpha leftstd rightstd] = estimateaggdparam( structdis(:) );         
+            featuress1 = [featuress1 alpha leftstd rightstd];
             
-            [alpha leftstd rightstd] = estimateaggdparam( imag(EO(:)) );
-            ThreeGabor_features3 = [ThreeGabor_features3 alpha leftstd rightstd];
+            [structdis,~,~,~]= divisiveNormalization3D(imag(EO));
+            [alpha leftstd rightstd] = estimateaggdparam( structdis(:)  );
+            featuress3 = [featuress3 alpha leftstd rightstd];
             
             
         end
     end
 
-    ThreeGabor_features1(k,:) = [ThreeGabor_features1];
-    ThreeGabor_features3(k,:) = [ThreeGabor_features3];
+    featuress1(k,:) = [featuress1];
+    featuress3(k,:) = [featuress3];
 
       
 end
 
-save ThreeGabor_features1.mat ThreeGabor_features1
-save ThreeGabor_features3.mat ThreeGabor_features3
+save 3D_LogGaborRe.mat featuress1
+save 3D_LogGaborIm.mat featuress3

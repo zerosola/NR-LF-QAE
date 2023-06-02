@@ -16,7 +16,7 @@ parfor z = 1 : 4
         case 3
             [LBP_features_width, LBP_features_height] = LBP_TOP(pos, lf_num);
         case 4
-            [ThreeGabor_features1,ThreeGabor_features3] = ThreeLogGabor(pos, lf_num, rows, cols, volume);
+            [Three_LogGaborRe,Three_LogGaborIm] = ThreeLogGabor(pos, lf_num, rows, cols, volume);
     end
 end
 toc

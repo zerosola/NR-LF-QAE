@@ -44,7 +44,7 @@ for s = 1:nscale                                          % For each scale.
         Angread = exp( -(dthetaphi.^2) / (2 * sigmaOnf^2) );      % Calculate the angular filter component.
         
         
-        fo = (2/minWaveLength)*3.^(s-1);                      % Centre frequency of filter
+        fo = (2/minWaveLength)*3.^0;                         % Centre frequency of filter
         logGabor = exp( -(log(radius/fo).^2) / (2 * log(thetaSigma)^2) );
         
         filter{s,o} =logGabor.* Angread;  
