@@ -3,4 +3,4 @@
 - **Article title**: "Blind Quality Evaluator of Light Field Images by Group-Based Representations and Multiple Plane-Oriented Perceptual Characteristics
 " ([link](https://ieeexplore.ieee.org/document/10105489))
 - ## 🔍 Citation
-- X. Chai, F. Shao, Q. Jiang, X. Wang, L. Xu and Y. -S. Ho, "Blind Quality Evaluator of Light Field Images by Group-Based Representations and Multiple Plane-Oriented Perceptual Characteristics," IEEE Transactions on Multimedia, doi: 10.1109/TMM.2023.3268370.
+- X. Chai, F. Shao, Q. Jiang, X. Wang, L. Xu and Y. -S. Ho, "Blind Quality Evaluator of Light Field Images by Group-Based Representations and Multiple Plane-Oriented Perceptual Characteristics," in IEEE Transactions on Multimedia, vol. 26, pp. 607-622, 2024, doi: 10.1109/TMM.2023.3268370.
